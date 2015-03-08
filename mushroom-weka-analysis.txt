@@ -45,9 +45,11 @@ As far as accuracy, in the first 10 records, these were the results:
 ('e', 'Probability Class = p: 1.96063461256e-06 Probability Class = e : 1.157237147e-10')
 
 Yielding an accuracy rate of 90%, as it incorrectly classified the 5th record. This is 5% lower than Weka's NB
-classifier, which had an accuracy of 95%, but it could also be due to the small sample size used. Through implementing this classifier
-I've learned that translating simple classification ideas into programming code can be very lengthy, or require a different sort of cleverness.
-Initially my probabilities were incorrect due to me incorrectly calculating frequencies. Every part must be accurate for the classifier to work.
+classifier, which had an accuracy of 95%, but it could also be due to the small sample size used. However, we 
+also did not prune, therefore, that could definitely contribute to the lower accuracy Through implementing this 
+classifier I've learned that translating simple classification ideas into programming code can be very lengthy, 
+or require a different sort of cleverness.Initially my probabilities were incorrect due to me incorrectly
+calculating frequencies. Every part must be accurate for the classifier to work.
 
 
 ---------------------------------------------------------------------------------------------------------------
