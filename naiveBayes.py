@@ -29,7 +29,6 @@ def getInitialCounts(trainingDataFile):
   return totalCount
       
 def getTrainingData(trainingDataFile, lineCounter): 
- 
       probDict = {}
       lines = [] 
       with open(trainingDataFile) as f:
@@ -42,9 +41,7 @@ def getTrainingData(trainingDataFile, lineCounter):
                   probDict[lists[lineCounter]] += 1
     
       return probDict
-    
-
-          
+  
 def processTrainingData(trainingDataFile):
   lines = []
   probDictList = []
@@ -76,7 +73,6 @@ def classifications(trainingDataFile):
       probOfeClass = float(eClassCount/totalCount)
       probOfpClass = float(pClassCount/totalCount)
   return probOfeClass, probOfpClass,eClassCount, pClassCount, totalCount
-
 
 def probabCount(lists):
   global listInc
@@ -147,16 +143,8 @@ def trainingApplication(trainingDataFile):
           for (k,v) in dicts.items():
             dicts[k] = float(float(v)/ float(len(newList)))
         newDictList = dictList
-  
-   
- 
     return yesDictList, newDictList
   
-
-
-
-
-
 def inputClassifier(trainingDataFile ,singleArgument):
     """singleArgument = singleArgument.split()"""
     global listLength
