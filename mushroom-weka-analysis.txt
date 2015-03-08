@@ -1,0 +1,154 @@
+Naive Bayes
+
+Time taken to build model: 0.03 seconds
+
+=== Evaluation on training set ===
+=== Summary ===
+
+Correctly Classified Instances        7790               95.8887 %
+Incorrectly Classified Instances       334                4.1113 %
+Kappa statistic                          0.9175
+Mean absolute error                      0.0405
+Root mean squared error                  0.1718
+Relative absolute error                  8.1092 %
+Root relative squared error             34.3742 %
+Total Number of Instances             8124     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.992     0.077      0.933     0.992     0.962      0.998    e
+                 0.923     0.008      0.991     0.923     0.956      0.998    p
+Weighted Avg.    0.959     0.044      0.961     0.959     0.959      0.998
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 4176   32 |    a = e
+  302 3614 |    b = p
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Our implementation takes significantly longer to run. This is probably due to the lack of opimization.
+When run the algorithm classifies at approximately 1 record per .6 seconds.
+As far as accuracy, in the first 10 records, these were the results:
+
+('e', 'Probability Class = p: 1.75834588507e-09 Probability Class = e : 4.10487011125e-14')
+('e', 'Probability Class = p: 2.16734773543e-08 Probability Class = e : 1.61246073951e-14')
+('e', 'Probability Class = p: 3.25463836946e-15 Probability Class = e : 2.56018327192e-16')
+('e', 'Probability Class = p: 1.82303620613e-06 Probability Class = e : 1.12949566756e-10')
+('p', 'Probability Class = p: 4.00403653458e-15 Probability Class = e : 4.83192733226e-14')
+('p', 'Probability Class = p: 5.45431536892e-12 Probability Class = e : 2.63867268156e-07')
+('e', 'Probability Class = p: 4.22831507023e-09 Probability Class = e : 2.57461943e-12')
+('p', 'Probability Class = p: 2.54510569238e-10 Probability Class = e : 2.98248001712e-07')
+('e', 'Probability Class = p: 2.0322529831e-08 Probability Class = e : 6.07889692573e-13')
+('e', 'Probability Class = p: 1.96063461256e-06 Probability Class = e : 1.157237147e-10')
+
+Yielding an accuracy rate of 90%, as it incorrectly classified the 5th record. This is 5% lower than Weka's NB
+classifier, which had an accuracy of 95%, but it could also be due to the small sample size used. Through implementing this classifier
+I've learned that translating simple classification ideas into programming code can be very lengthy, or require a different sort of cleverness.
+Initially my probabilities were incorrect due to me incorrectly calculating frequencies. Every part must be accurate for the classifier to work.
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+C 4.5
+
+Number of Leaves  : 	25
+
+Size of the tree : 	30
+
+
+Time taken to build model: 0.06 seconds
+
+=== Evaluation on training set ===
+=== Summary ===
+
+Correctly Classified Instances        8124              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0     
+Root mean squared error                  0     
+Relative absolute error                  0      %
+Root relative squared error              0      %
+Total Number of Instances             8124     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        e
+                 1         0          1         1         1          1        p
+Weighted Avg.    1         0          1         1         1          1    
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 4208    0 |    a = e
+    0 3916 |    b = p
+
+--------------------------------------------------------------------------------------------------------
+SVM
+
+Number of kernel evaluations: 1960894 (71.257% cached)
+
+
+
+Time taken to build model: 7.4 seconds
+
+=== Evaluation on training set ===
+=== Summary ===
+
+Correctly Classified Instances        8124              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0     
+Root mean squared error                  0     
+Relative absolute error                  0      %
+Root relative squared error              0      %
+Total Number of Instances             8124     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        e
+                 1         0          1         1         1          1        p
+Weighted Avg.    1         0          1         1         1          1    
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 4208    0 |    a = e
+    0 3916 |    b = p
+
+----------------------------------------------------------------------------------------------------
+
+Random Forest
+
+Time taken to build model: 1.58 seconds
+
+=== Evaluation on training set ===
+=== Summary ===
+
+Correctly Classified Instances        8124              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0001
+Root mean squared error                  0.0008
+Relative absolute error                  0.0135 %
+Root relative squared error              0.1654 %
+Total Number of Instances             8124     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        e
+                 1         0          1         1         1          1        p
+Weighted Avg.    1         0          1         1         1          1    
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 4208    0 |    a = e
+    0 3916 |    b = p
+
