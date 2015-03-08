@@ -24,20 +24,14 @@ def getInitialCounts(trainingDataFile):
             eClassCount +=1;  
       totalCount = pClassCount + eClassCount
       probOfeClass = eClassCount/totalCount
-      probOfpClass = pClassCount/totalCount
-      ''' print("probability the target is in e: " + str(probOfeClass))
-      print("probability the target is in p: " + str(probOfpClass))    
-      print("total amount of product: " +  str(totalCount))    
-      print ("Amount of p-class product: " + str(pClassCount))
-      print("Amount of e-class product: " + str(eClassCount)) '''       
+      probOfpClass = pClassCount/totalCount    
 
   return totalCount
       
 def getTrainingData(trainingDataFile, lineCounter): 
+ 
       probDict = {}
       lines = [] 
-      
-      
       with open(trainingDataFile) as f:
         for line in f:
           lines.append(line.split())   
@@ -46,9 +40,7 @@ def getTrainingData(trainingDataFile, lineCounter):
                   probDict[lists[lineCounter]] = 1
               elif lists[lineCounter] in probDict:
                   probDict[lists[lineCounter]] += 1
-        
-              '''print("proability " + str(v))'''
-          
+    
       return probDict
     
 
@@ -56,7 +48,6 @@ def getTrainingData(trainingDataFile, lineCounter):
 def processTrainingData(trainingDataFile):
   lines = []
   probDictList = []
-  setData =  getInitialCounts(trainingDataFile)
   k = 0
   probDict = getTrainingData(trainingDataFile, k)
   with open(trainingDataFile) as f:
@@ -67,8 +58,6 @@ def processTrainingData(trainingDataFile):
               listLength = len(lists)
               while k < len(lists): 
                 probDict = getTrainingData(trainingDataFile, k)
-                for (x,y) in probDict.items():
-                  """probDict[x] = y/setData"""
                 probDictList.append(probDict)
                 k +=1
   return probDictList
@@ -104,23 +93,17 @@ def trainingApplication(trainingDataFile):
     global newDict
     global listInc
     classifProb = classifications(trainingDataFile)
-    setData = getInitialCounts(trainingDataFile);
     newDict = {}
     newList = []
     yesList = []
-    yesDict = {}
     prob_e, prob_p, eclass, pclass, totalCount = classifProb
     lines = []
-    probDictList = []
-    setData =  getInitialCounts(trainingDataFile)
     k = 0
     counting = 0
     listInc = 0
-    yesDictList = []
     elementCount = 0
     probabDictList = []
     probabDict = {}
-    probDict = getTrainingData(trainingDataFile, k)
     with open(trainingDataFile) as f:
         for line in f:
           lines.append(line.split())
@@ -182,24 +165,19 @@ def inputClassifier(trainingDataFile ,singleArgument):
     a, b, c, d, e = classifications(trainingDataFile)
     x = 0
     pVal = 1
-    originalList = processTrainingData("data2")
-    setProbability = 0
     yesdicts, nodicts = trainingApplication(trainingDataFile)
     while x < len(singleArgument):
-       for dicts in yesdicts:
-         pVal *= dictSearch(yesdicts, dicts, singleArgument, x, totalCount)
-         x +=1
+      for dicts in yesdicts:
+        pVal *= dictSearch(yesdicts, dicts, singleArgument, x, totalCount)
+        x +=1
     setProbabilityyes = pVal * b 
-    
     x = 0
     pVal = 1
-    originalList = processTrainingData("data2")
-    setProbability = 0
     yesdicts, nodicts = trainingApplication(trainingDataFile)
     while x < len(singleArgument):
-       for dicts in nodicts:
-         pVal *= dictSearch(nodicts, dicts, singleArgument, x, totalCount)
-         x +=1
+      for dicts in nodicts:
+        pVal *= dictSearch(nodicts, dicts, singleArgument, x, totalCount)
+        x +=1
     setProbabilityno = pVal * a 
     
     
@@ -220,12 +198,6 @@ def dictSearch(yesdicts, dicts, singleArgument, x, totalCount):
      
   return 1     
           
-          
-  
-    
-
-
-
 def classify(inputDataFile, trainingDataFile):
   with open(inputDataFile) as f:
     for line in f:
