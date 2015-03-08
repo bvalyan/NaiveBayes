@@ -30,7 +30,7 @@ Weighted Avg.    0.959     0.044      0.961     0.959     0.959      0.998
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Our implementation takes significantly longer to run. This is probably due to the lack of opimization.
-When run the algorithm classifies at approximately 1 record per .6 seconds.
+When run the algorithm classifies at approximately 44 records per 10 seconds.
 As far as accuracy, in the first 10 records, these were the results:
 
 ('e', 'Probability Class = p: 1.75834588507e-09 Probability Class = e : 4.10487011125e-14')
