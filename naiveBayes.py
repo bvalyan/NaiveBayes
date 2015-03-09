@@ -9,6 +9,7 @@ listLength = 0
 listCount = 0
 listInc = 0
 newDict = {}
+accuracy = 0
 
 def getInitialCounts(trainingDataFile):
   pClassCount = 0
@@ -150,6 +151,7 @@ def inputClassifier(trainingDataFile ,singleArgument):
     global listLength
     global classEProb
     global classPprob
+    global accuracy
     a, b, c, d, e = classifications(trainingDataFile)
     x = 0
     pVal = 1
@@ -173,7 +175,12 @@ def inputClassifier(trainingDataFile ,singleArgument):
       classif = "p"
     else:
       classif = "e"
-    return (classif, "Probability Class = p: " + str(setProbabilityyes) + " Probability Class = e : " + str(setProbabilityno) )
+    
+    if classif == singleArgument[0]:
+      accuracy +=1
+    
+    
+    return (classif, "Probability Class = p: " + str(setProbabilityyes) + " Probability Class = e : " + str(setProbabilityno) + " Accuracy: " + str(accuracy/e))
   
 def dictSearch(yesdicts, dicts, singleArgument, x, totalCount):
   global listLength
